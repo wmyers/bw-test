@@ -1,0 +1,3 @@
+<h4>Number of deliveries</h4>
+<div>{{data.numDeliveries}} {{data.numDeliveries === 1 ? 'delivery' : 'deliveries'}}</div>
+<input type="range" id="sliderBar" min="1" max="10" step="1" ng-model="data.numDeliveries" ng-change="$ctrl.selectNumDeliveries(data.numDeliveries)"></input>

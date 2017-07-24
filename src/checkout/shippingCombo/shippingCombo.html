@@ -1,0 +1,4 @@
+<h4>Shipping Options</h4>
+<select name="shippingSelect" id="shippingSelect" ng-model="data.shippingChoice" ng-change="$ctrl.selectShipping(data.shippingChoice)">
+  <option ng-repeat="option in $ctrl.options" value="{{option.id}}" >{{option.name}}</option>
+</select>

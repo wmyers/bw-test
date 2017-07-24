@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.sku {
+  flex: 1;
+  display: block;
+  width: 300px;
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.sku img {
+  width: 300px;
+  height: 300px;
+}
