@@ -1,10 +1,13 @@
+export const calculatePrice = () => {
+  
+}
+
 export default class PriceCalculatorService {
   constructor() {
     this.price = null;
     this.selectedBouquetData = null;
     this.selectedShippingData = null;
-    this.deliveryDateExcess = null;
-    this.deliveryQuantity = null;
+    this.deliveryDateData = null;
   }
 
   setBouquetData({name, price}) {
@@ -16,17 +19,13 @@ export default class PriceCalculatorService {
     this.selectedShippingData = {price};
   }
 
-  setDeliveryDate(deliveryDate) {
-    this.deliveryDateExcess = getDeliveryDateExcess(deliveryDate);
+  setDeliveryDate({deliveryDate, isXmasDate}) {
+    this.deliveryDateData = {deliveryDate, isXmasDate}
   }
 
   setDeliveryQuantity(quantity) {
     console.log('>>>>> setDeliveryQuantity quantity', quantity);
     this.deliveryQuantity = quantity;
-  }
-
-  getDeliveryDateExcess(deliveryDate) {
-    
   }
 
   getPrice() {

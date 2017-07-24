@@ -1,2 +1,3 @@
 <h4>Date of delivery</h4>
-<div uib-datepicker></div>
+<div class="{{styles.container}}" uib-datepicker ng-model="dt" datepicker-options="options" ng-change="$ctrl.selectDate(dt)"></div>
+<div>Selected date: {{selectedDate}}</div>

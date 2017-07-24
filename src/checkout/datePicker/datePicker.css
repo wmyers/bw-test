@@ -1,0 +1,9 @@
+.premium button span {
+  background-color: orange;
+  border-radius: 32px;
+  color: black;
+}
+
+.container > div > div{
+  outline: 0;
+}
