@@ -129,7 +129,7 @@ describe('price calculator service utils', () => {
     beforeEach(() => {
       selectedSKUData = {price: 15};
       selectedShippingData = {price: 5};
-      deliveryDateData = {isXmasDate: false};
+      deliveryDateData = {isXmasDate: false, deliveryDate: Date.now()};
       deliveryQuantity = 1;
     });
 
@@ -145,6 +145,11 @@ describe('price calculator service utils', () => {
       const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
       expect(result).to.equal(INCOMPLETE_FIELDS_MESSAGE);
     });    
+    it('will not calculate the total if deliveryDateData.deliveryDate is falsy', () => {
+      deliveryDateData = {};
+      const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
+      expect(result).to.equal(INCOMPLETE_FIELDS_MESSAGE);
+    }); 
     it('will not calculate the total if deliveryQuantity is falsy', () => {
       deliveryQuantity = 0;
       const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
@@ -156,7 +161,7 @@ describe('price calculator service utils', () => {
       expect(result).to.equal(expectedResult);
     });
     it('will optionally increase the total if deliveryDateData.isXmasDate is truthy', () => {
-      deliveryDateData = {isXmasDate: true};
+      deliveryDateData = {...deliveryDateData, isXmasDate: true};
       const expectedResult = `£${(expectedTotal + XMAS_SURCHARGE).toFixed(2)}`;
       const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
       expect(result).to.equal(expectedResult);      

@@ -7,6 +7,11 @@ npm i
 npm start
 ```
 
+to test
+```
+npm run test
+```
+
 Browse to <http://localhost:8080>
 
 ### Tested in:
