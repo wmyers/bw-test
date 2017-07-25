@@ -7,7 +7,7 @@ import {
   checkIsANumber,
   INCOMPLETE_FIELDS_MESSAGE,
   XMAS_SURCHARGE
-} from '../services/priceCalculator.service.js';
+} from '../services/priceCalculator.service';
 
 describe('price calculator service', () => {
 
