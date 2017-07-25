@@ -1,8 +1,8 @@
 <ul class="{{styles.container}}">
-  <li class="{{styles.item}}" ng-repeat="sku in $ctrl.skus">
+  <li class="{{styles.item}}" ng-repeat="sku in $ctrl.skus track by $index">
     <div class="{{styles.sku}}">
       <div>{{sku.name}} - {{sku.priceLabel}}</div>
-      <img src="{{sku.imageUrl}}" class="{{$ctrl.selectedSKU === sku ? styles.selected : ''}}" ng-click="$ctrl.selectSKU(sku)"/>
+      <img ng-src="{{sku.imageUrl}}" class="{{$ctrl.selectedSKU === sku ? styles.selected : ''}}" ng-click="$ctrl.selectSKU(sku)"/>
     </div>
   </li>
 </ul>

@@ -1,8 +1,8 @@
 export const XMAS_SURCHARGE = 3.5;
 export const INCOMPLETE_FIELDS_MESSAGE = 'please complete all fields';
 
-export const calculateSterlingTotalPrice = ({price: skuPrice}, {price: shippingPrice}, {deliveryDate, isXmasDate}, deliveryQuantity) => {  
-  if (!skuPrice || !shippingPrice || !deliveryDate || !deliveryQuantity) {
+export const calculateSterlingTotalPrice = ({price: skuPrice}, {price: shippingPrice}, {selectedDate, isXmasDate}, deliveryQuantity) => {  
+  if (!skuPrice || !shippingPrice || !selectedDate || !deliveryQuantity) {
     return INCOMPLETE_FIELDS_MESSAGE;
   }
   const total = (parseFloat(skuPrice) * deliveryQuantity) + (parseFloat(shippingPrice) + (isXmasDate ? XMAS_SURCHARGE : 0));
@@ -36,8 +36,8 @@ export class PriceCalculatorService {
     }
   }
 
-  setDeliveryDate({selectedDate: deliveryDate, isXmasDate}) {
-    this.state.deliveryDateData = {deliveryDate, isXmasDate};
+  setDeliveryDate({selectedDate, isXmasDate}) {
+    this.state.deliveryDateData = {selectedDate, isXmasDate};
     this.updatePrice();
   }
 
