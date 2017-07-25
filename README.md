@@ -7,12 +7,12 @@ npm i
 npm start
 ```
 
-to test
+Browse to <http://localhost:8080>
+
+To test
 ```
 npm run test
 ```
-
-Browse to <http://localhost:8080>
 
 ### Tested in:
  - Chrome `Version 59.0.3071.115 (Official Build) (64-bit)`
