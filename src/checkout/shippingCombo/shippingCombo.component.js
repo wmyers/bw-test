@@ -12,7 +12,7 @@ function shippingComboCtrl($scope, PriceCalculatorService) {
   }
 };
 
-module.exports = {
+export default {
   template: require('./shippingCombo.html'),
   controller: shippingComboCtrl,
   bindings: {

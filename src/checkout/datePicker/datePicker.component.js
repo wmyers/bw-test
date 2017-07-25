@@ -35,7 +35,7 @@ function datePickerCtrl ($scope, PriceCalculatorService){
   };
 };
 
-module.exports = {
+export default {
   template: require('./datePicker.html'),
   controller: datePickerCtrl
 }

@@ -10,7 +10,7 @@ function skuListCtrl ($scope, PriceCalculatorService){
   }
 };
 
-module.exports = {
+export default {
   template: require('./skuList.html'),
   controller: skuListCtrl,
   bindings: {

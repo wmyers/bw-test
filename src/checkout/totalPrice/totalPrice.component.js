@@ -6,7 +6,7 @@ function totalPriceCtrl($scope, PriceCalculatorService) {
   this.state = PriceCalculatorService.getState();
 };
 
-module.exports = {
+export default {
   template: require('./totalPrice.html'),
   controller: totalPriceCtrl
 }

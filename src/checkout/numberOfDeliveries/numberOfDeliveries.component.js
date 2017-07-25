@@ -11,7 +11,7 @@ function numberOfDeliveriesCtrl($scope, PriceCalculatorService) {
   }
 };
 
-module.exports = {
+export default {
   template: require('./numberOfDeliveries.html'),
   controller: numberOfDeliveriesCtrl
 }
