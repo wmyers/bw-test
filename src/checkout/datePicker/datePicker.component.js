@@ -1,6 +1,6 @@
 import styles from './datePicker.css';
 
-const isXmasDeliveryDate = (date, today) => {
+export const isXmasDeliveryDate = (date, today) => {
   const dateToCheck = new Date(date);
   if (dateToCheck >= today) {
     const yearToCheck = dateToCheck.getFullYear();
