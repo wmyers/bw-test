@@ -1,3 +1,3 @@
 <h4>Date of delivery</h4>
-<div class="{{styles.container}}" uib-datepicker ng-model="dt" datepicker-options="options" ng-change="$ctrl.selectDate(dt)"></div>
-<div>Selected date: {{selectedDate}}</div>
+<div class="{{styles.container}}" uib-datepicker ng-model="$ctrl.dt" datepicker-options="$ctrl.options" ng-change="$ctrl.selectDate($ctrl.dt)"></div>
+<div>Selected date: {{$ctrl.selectedDate}} <span class="{{styles.xmasDate}}">{{$ctrl.isXmasDate ? 'costs £3.50 more' : ''}}</span></div>

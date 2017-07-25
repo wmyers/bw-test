@@ -1,13 +1,12 @@
 import styles from './totalPrice.css';
 
-const totalPriceCtrl = $scope => {  
+totalPriceCtrl.$inject = ['$scope', 'PriceCalculatorService'];
+function totalPriceCtrl($scope, PriceCalculatorService) {  
   $scope.styles = styles;
+  this.state = PriceCalculatorService.getState();
 };
 
 module.exports = {
   template: require('./totalPrice.html'),
-  controller: totalPriceCtrl,
-  bindings: {
-    totalPrice: '<'
-  }
+  controller: totalPriceCtrl
 }

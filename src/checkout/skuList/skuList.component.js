@@ -1,9 +1,14 @@
 import styles from './skuList.css';
 
-const skuListCtrl = $scope => {  
+skuListCtrl.$inject = ['$scope', 'PriceCalculatorService'];
+function skuListCtrl ($scope, PriceCalculatorService){  
   $scope.styles = styles;
+  this.selectSKU = sku => {
+    this.selectedSKU = sku;
+    const {name, price} = sku;
+    PriceCalculatorService.setSKUData({name, price});
+  }
 };
-// skuListCtrl.$inject = ['$scope'];
 
 module.exports = {
   template: require('./skuList.html'),

@@ -17,27 +17,22 @@ const isXmasDeliveryDate = (date, today) => {
 datePickerCtrl.$inject = ['$scope', 'PriceCalculatorService']; 
 function datePickerCtrl ($scope, PriceCalculatorService){  
   $scope.styles = styles;
-
-  $scope.today = function() {
-    $scope.dt = new Date();
-  };
-  $scope.today();
-
-  $scope.options = {
+  this.dt = new Date();
+  this.options = {
     minDate: new Date(),
     showWeeks: false,
-    customClass: data => {
-      const {date, mode} = data;
-      if (mode === 'day' && isXmasDeliveryDate(date, $scope.dt)) {
+    customClass: ({date, mode}) => {
+      if (mode === 'day' && isXmasDeliveryDate(date, this.dt)) {
         return styles.premium;
       };
       return '';
     }
   };
   this.selectDate = (selectedDate) => {
-    const isXmasDate = isXmasDeliveryDate(selectedDate, $scope.dt);
-    $scope.selectedDate = `${selectedDate.toDateString()} ${isXmasDate ? 'costs £3.50 more' : ''}`;
-  }
+    const isXmasDate = this.isXmasDate = isXmasDeliveryDate(selectedDate, this.dt);
+    this.selectedDate = `${selectedDate.toDateString()}`;
+    PriceCalculatorService.setDeliveryDate({selectedDate, isXmasDate});
+  };
 };
 
 module.exports = {

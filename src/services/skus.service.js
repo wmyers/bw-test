@@ -19,11 +19,13 @@ export default class SkusService {
             },
             pricings
           } = sku;
-          const price = `£${pricings.find(pricing => pricing.quantity === 1).amount}`;
+          const price = pricings.find(pricing => pricing.quantity === 1).amount;
+          const priceLabel = `£${price}`;
           return {
             name,
             imageUrl,
-            price
+            price,
+            priceLabel
           };
         })
     });
