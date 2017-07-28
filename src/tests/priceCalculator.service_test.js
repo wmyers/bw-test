@@ -155,7 +155,7 @@ describe('price calculator service utils', () => {
       const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
       expect(result).to.equal(INCOMPLETE_FIELDS_MESSAGE);
     });
-    it('will calculate the total if selectedSKUData.price, selectedShippingData.price and deliveryQuantity values are truthy', () => {
+    it('will calculate the total if selectedSKUData.price, selectedShippingData.price, deliveryDateData.selectedDate and deliveryQuantity values are truthy', () => {
       const expectedResult = `£${expectedTotal.toFixed(2)}`;
       const result = calculateSterlingTotalPrice(selectedSKUData, selectedShippingData, deliveryDateData, deliveryQuantity);
       expect(result).to.equal(expectedResult);
